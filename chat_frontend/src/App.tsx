@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import io from 'socket.io-client'
 
 function App() {
+    useEffect(() => {
+        let socket = io()
+    }, [])
   const [messages, setMessages] = useState([
       {message: "Good", id: "1", user: {id: "1", name: "userName1"} },
     {message: "Good", id: "2", user: {id: "2", name: "userName2"} }
@@ -11,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+        <div>
         <div>
             {messages.map(m => {
                return  <div>
@@ -23,6 +28,7 @@ function App() {
             <input id="input" autoComplete="off"/>
             <button>Send</button>
         </form>
+        </div>
     </div>
   );
 }
