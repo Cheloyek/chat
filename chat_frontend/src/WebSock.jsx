@@ -17,7 +17,7 @@ const WebSock = () => {
                 event: 'connection',
                 userName,
                 id: Date.now()
-            }
+            } 
             //отправка сообщения
             socket.current.send(JSON.stringify(message))
             console.log('Подключение установлено')
